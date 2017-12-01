@@ -44,6 +44,8 @@ tmpfs           15358148   16664  15341484   1% /run
 tmpfs           15358148       0  15358148   0% /sys/fs/cgroup
 tmpfs            3071632       0   3071632   0% /run/user/1000
 ```
+_falto mostrar la salida de yum repolist enabled_
+
 ## list /etc/passwd
 
 ```[root@ip-172-31-29-228 ec2-user]# cat /etc/passwd
@@ -55,3 +57,4 @@ haley:x:2900:1001::/home/haley:/bin/bash
 comets:x:1001:
 planets:x:1002:
 ```
+_en la instruccion habla de agregar los usuarios a los grupos, no de que estos sean sus grupos primarios_
