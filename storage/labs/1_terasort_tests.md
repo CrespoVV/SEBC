@@ -1,8 +1,11 @@
+## <center> Terasort Testing
+
 HDFS Lab: Test HDFS throughput
 
- time hadoop jar hadoop-examples.jar teragen -D dfs.blocksize=33554432 -D mapreduce.job.maps=4 100000000 /user/crispin/terasort-input
+``` time hadoop jar hadoop-examples.jar teragen -D dfs.blocksize=33554432 -D mapreduce.job.maps=4 100000000 /user/crispindev/terasort-input
+```
 
- 17/11/28 21:43:57 INFO client.RMProxy: Connecting to ResourceManager at ip-172-31-49-75.ec2.internal/172.31.49.75:8032
+```17/11/28 21:43:57 INFO client.RMProxy: Connecting to ResourceManager at ip-172-31-49-75.ec2.internal/172.31.49.75:8032
 17/11/28 21:43:58 INFO terasort.TeraGen: Generating 100000000 using 4
 17/11/28 21:43:58 INFO mapreduce.JobSubmitter: number of splits:4
 17/11/28 21:43:58 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1511889688799_0009
@@ -88,8 +91,10 @@ HDFS Lab: Test HDFS throughput
 real    2m42.319s
 user    0m5.519s
 sys     0m0.325s
+```
+Terasort Command
 
-time hadoop jar hadoop-examples.jar terasort /user/crispin-dev/terasort-input /user/crispin-dev/terasort-output
+```time hadoop jar hadoop-examples.jar terasort /user/crispindev/terasort-input /user/crispindev/terasort-output
 
 17/11/28 21:50:35 INFO terasort.TeraSort: starting
 17/11/28 21:50:36 INFO input.FileInputFormat: Total input paths to process : 4
@@ -275,3 +280,4 @@ Spent 847ms computing partitions.
 real    3m34.698s
 user    0m8.518s
 sys     0m0.386s
+```

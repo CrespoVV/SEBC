@@ -1,7 +1,14 @@
-[root@ip-172-31-49-75 ec2-user]# cat /proc/sys/vm/swappiness
-10
+## <center> System Configuration checks
 
-AME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+Check Swappiness
+
+```[root@ip-172-31-49-75 ec2-user]# cat /proc/sys/vm/swappiness
+10
+```
+
+Check disk Mounts
+
+```AME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  80G  0 disk
 ├─xvda1 202:1    0   1M  0 part
 └─xvda2 202:2    0  80G  0 part /
@@ -54,11 +61,20 @@ Journal backup:           inode blocks
 
 [root@ip-172-31-49-75 ec2-user]# sudo file -s /dev/xvda2
 /dev/xvda2: SGI XFS filesystem data (blksz 4096, inosz 512, v2 dirs)
+```
+Diable Hugepage Support
+
+```
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
+echo never > /sys/kernel/mm/transparent_hugepage/defrag
 
 [root@ip-172-31-49-75 ec2-user]# sudo chmod a+x /etc/rc.d/rc.local && sudo
 /etc/rc.d/rc.local
+```
 
-[root@ip-172-31-49-75 ec2-user]# ifconfig -a
+Network Interface Config
+
+```[root@ip-172-31-49-75 ec2-user]# ifconfig -a
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
         inet 172.31.49.75  netmask 255.255.240.0  broadcast 172.31.63.255
         inet6 fe80::1080:e3ff:fe56:53c  prefixlen 64  scopeid 0x20<link>
@@ -67,8 +83,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 2389786  bytes 2230785411 (2.0 GiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
-lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         inet 127.0.0.1  netmask 255.0.0.0
         inet6 ::1  prefixlen 128  scopeid 0x10<host>
         loop  txqueuelen 1  (Local Loopback)
@@ -76,14 +91,28 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 739226  bytes 1478321534 (1.3 GiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+Check Local Host lookups
+```[ec2-user@ip-172-31-61-22 home]$ nslookup ip-172-31-61-22.ec2.internal
+Server:         172.31.0.2
+Address:        172.31.0.2#53
 
-[root@ip-172-31-49-75 ec2-user]# getent hosts 127.0.0.1
-127.0.0.1       localhost localhost.localdomain localhost4 localhost4.localdomain4
+Non-authoritative answer:
+Name:   ip-172-31-61-22.ec2.internal
+Address: 172.31.61.22
 
-[root@ip-172-31-49-75 ec2-user]# getent hosts localhost
-::1             localhost localhost.localdomain localhost6 localhost6.localdomain6
+[ec2-user@ip-172-31-61-22 home]$ nslookup 172.31.61.22
+Server:         172.31.0.2
+Address:        172.31.0.2#53
 
-[root@ip-172-31-49-75 etc]# service nscd status
+Non-authoritative answer:
+22.61.31.172.in-addr.arpa       name = ip-172-31-61-22.ec2.internal.
+
+Authoritative answers can be found from:
+```
+NSCD service running:
+
+```[root@ip-172-31-49-75 etc]# service nscd status
 Redirecting to /bin/systemctl status nscd.service
 ● nscd.service - Name Service Cache Daemon
    Loaded: loaded (/usr/lib/systemd/system/nscd.service; disabled; vendor preset: disabled)
@@ -92,8 +121,11 @@ Redirecting to /bin/systemctl status nscd.service
  Main PID: 25406 (nscd)
    CGroup: /system.slice/nscd.service
            └─25406 /usr/sbin/nscd
+```
 
-           [root@ip-172-31-49-75 etc]# service ntpd status
+NTPD Service running:
+
+```[root@ip-172-31-49-75 etc]# service ntpd status
            Redirecting to /bin/systemctl status ntpd.service
            ● ntpd.service - Network Time Service
               Loaded: loaded (/usr/lib/systemd/system/ntpd.service; disabled; vendor preset: disabled)
@@ -102,3 +134,4 @@ Redirecting to /bin/systemctl status nscd.service
             Main PID: 26001 (ntpd)
               CGroup: /system.slice/ntpd.service
                       └─26001 /usr/sbin/ntpd -u ntp:ntp -g
+```

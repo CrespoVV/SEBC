@@ -1,4 +1,4 @@
-##Start
+## Stop Hive Service
 
 ```curl -X POST -u crispindev:Cloudera1! 'http://54.224.191.143:7180/api/v1/clusters/BCTestCluster/services/hive/commands/start'
 {
@@ -13,7 +13,7 @@
 }
 ```
 
-##Status
+## Hive Status
 
 ```
 $ curl -u crispindev:Cloudera1! 'http://54.224.191.143:7180/api/v1/clusters/BCTestCluster/services/hive'
@@ -39,7 +39,7 @@ $ curl -u crispindev:Cloudera1! 'http://54.224.191.143:7180/api/v1/clusters/BCTe
 }
 ```
 
-##Start
+##Hive Start
 ```$ curl -X POST -u crispindev:Cloudera1! 'http://54.224.191.143:7180/api/v1/clusters/BCTestCluster/services/hive/commands/start'
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -52,10 +52,7 @@ $ curl -u crispindev:Cloudera1! 'http://54.224.191.143:7180/api/v1/clusters/BCTe
     "clusterName" : "cluster",
     "serviceName" : "hive"
   }
-}```
-
-
-
+}
 
 "serviceUrl" : "http://ip-172-31-54-226.ec2.internal:7180/cmf/serviceRedirect/oozie",
 "serviceState" : "STARTED",
@@ -101,9 +98,3 @@ $ curl -u crispindev:Cloudera1! 'http://54.224.191.143:7180/api/v1/clusters/BCTe
 "configStale" : false
 } ]
 }
-
-Crispin.Velez@RICOHCO-1TPXRF2 MINGW32 ~ (master)
-$ ^C
-
-Crispin.Velez@RICOHCO-1TPXRF2 MINGW32 ~ (master)
-$

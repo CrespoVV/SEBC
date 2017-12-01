@@ -1,5 +1,6 @@
-## API version
+## <center> CM Upgrade
 
+API version
 
 ```$ curl -u crispindev:Cloudera1! http://54.224.191.143:7180/api/version
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -7,7 +8,7 @@
 100     3  100     3    0     0      3      0  0:00:01 --:--:--  0:00:01     6v18
 ````
 
-## CM version
+CM version
 
 
 ```$ curl -u crispindev:Cloudera1! http://54.224.191.143:7180/api/v18/cm/version
@@ -22,7 +23,7 @@
 }
 ```
 
-## List CM users
+List CM users
 
 ```$ curl -u crispindev:Cloudera1! http://54.224.191.143:7180/api/v18/users
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -40,7 +41,7 @@
   } ]
 }
 ```
-##Databse Server by CM
+Databse Server by CM
 ```$ curl -u crispindev:Cloudera1! http://54.224.191.143:7180/api/v18/cm/scmDbInfo
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
