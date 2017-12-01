@@ -5,12 +5,12 @@ AWS
 
 ## Intance IP and DNS
 
-Cloudera Main DB
-IP: 172.31.29.228 DNS: ip-172-31-29-228.ec2.internal
+##Cloudera Main DB
+IP: 172.31.21.230 DNS: ip-172-31-21-230.ec2.internal
 
 ##Cloudera Manager Utilities
+IP: 172.31.29.228 DNS: ip-172-31-29-228.ec2.internal
 
-IP: 172.31.21.230 DNS: ip-172-31-21-230.ec2.internal
 
 ##Cloudera MN
 
